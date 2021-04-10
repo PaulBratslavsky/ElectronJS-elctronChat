@@ -17,11 +17,6 @@ const SETTINGS = {
   },
 };
 
-const notification = {
-  title: "Welcome",
-  body: "How are you today?",
-};
-
 function createWindow() {
   const electron = new BrowserWindow(SETTINGS);
   electron.loadFile("index.html");
@@ -37,16 +32,16 @@ if (isInDevMode) {
 
 function runOnStart() {
   createWindow();
-  alert.showNotification(notification);
 }
 
+const alertEvent = (_, message) =>
+alert.showNotification({
+  title: "From Button Click",
+  body: message,
+})
+
 // event listener
-ipcMain.on("notify", (_, message) =>
-  alert.showNotification({
-    title: "From Button Click",
-    body: message,
-  })
-);
+ipcMain.on("notify", alertEvent);
 
 app.whenReady().then(runOnStart);
 app.on("window-all-closed", helpers.keepOpenOnMac);
