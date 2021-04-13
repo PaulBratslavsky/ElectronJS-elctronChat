@@ -7,7 +7,9 @@ const isInDevMode = !app.isPackaged;
 
 const SETTINGS = {
   width: 800,
-  height: 600,
+  height: 550,
+  minWidth: 800,
+  minHeight: 550,
   backgroundColor: "white",
   webPreferences: {
     nodeIntegration: false, // prevents running node from browser

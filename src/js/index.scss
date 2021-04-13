@@ -25,13 +25,18 @@ $cyan: #36b9cc !default;
 $brand-google: #ea4335 !default;
 $brand-facebook: #3b5998 !default;
 
-html,
-body {
+html{
   height: 100%;
 }
 
-#root {
-  height: 100%;
+body {
+  height: inherit;
+  background-color: $gray-200;
+}
+
+
+.align-center {
+  align-self: center;
 }
 
 .content-wrapper {
@@ -61,6 +66,12 @@ body {
       }
     }
   }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-title {
@@ -389,6 +400,8 @@ ul {
   .back-button {
     align-self: center;
   }
+
+
 }
 
 .chat-navbar {
